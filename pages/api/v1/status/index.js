@@ -13,6 +13,7 @@ async function status(req, res) {
     text: "SELECT count(*)::int FROM pg_stat_activity WHERE datname = $1;",
     values: [dbName],
   });
+  console.log(dbOpenedConnectionsResult);
   const dbOpenedConnections = dbOpenedConnectionsResult.rows[0].count;
 
   res.status(200).json({
