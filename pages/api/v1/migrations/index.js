@@ -22,7 +22,7 @@ export default async function migrations(req, res) {
     return res.status(200).json(migratedMigrations);
   }
 
-  return req.status(405).end();
+  return res.status(405).end();
 }
 
 async function migrate(dbClient, isDryRun) {
